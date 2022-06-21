@@ -18,5 +18,14 @@ public class Movement : MonoBehaviour
         moveDelta = new Vector3(input.x * xSpeed, input.y, 0);
         
         transform.Translate(moveDelta.x * Time.deltaTime, 0, 0);
+
+        if(transform.position.x > 1.2f)
+        {
+            transform.Translate(-0.01f, 0, 0);
+        }
+        if (transform.position.x < -1.2f)
+        {
+            transform.Translate(0.01f, 0, 0);
+        }
     }
 }
