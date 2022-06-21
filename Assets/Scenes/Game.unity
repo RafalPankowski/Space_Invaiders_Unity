@@ -389,3 +389,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xSpeed: 0.5
+  bulletPrefarb: {fileID: -7270274051168888027, guid: 95b18606323342b4e96badfb25a51284, type: 3}
+  player: {fileID: 0}
