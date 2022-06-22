@@ -27,4 +27,12 @@ public class Bullet : Collision
             Destroy(gameObject);
         }
     }
+
+    protected override void OnCollide(Collider2D coll)
+    {
+        if (coll.tag == "Fighter")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
