@@ -49,10 +49,15 @@ public class EnemyManager : Movement
             if (enemyObj.name == "Enemy(Clone)")
             {
 
-                if (enemyObj.transform.position.x > 1.2f || enemyObj.transform.position.x < -1.2f)
+                if (enemyObj.transform.position.x > 1.2f)
                 {
                     transform.Translate(0, -0.02f, 0);
                     x = -0.5f;
+                }
+                if (enemyObj.transform.position.x < -1.2f)
+                {
+                    transform.Translate(0, -0.02f, 0);
+                    x = 0.5f;
                 }
             }
         }
