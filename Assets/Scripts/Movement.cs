@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     protected Vector3 moveDelta;
     protected RaycastHit2D hit;
     public float xSpeed = 0.5f;
+    public float ySpeed = 0.25f;
     protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -15,17 +16,8 @@ public class Movement : MonoBehaviour
 
     protected virtual void UpdateMotor(Vector3 input)
     {
-        moveDelta = new Vector3(input.x * xSpeed, input.y, 0);
+        moveDelta = new Vector3(input.x * xSpeed, input.y * ySpeed, 0);
         
         transform.Translate(moveDelta.x * Time.deltaTime, 0, 0);
-
-        if(transform.position.x > 1.2f)
-        {
-            transform.Translate(-0.01f, 0, 0);
-        }
-        if (transform.position.x < -1.2f)
-        {
-            transform.Translate(0.01f, 0, 0);
-        }
     }
 }

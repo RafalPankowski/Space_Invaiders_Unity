@@ -32,4 +32,17 @@ public class Player : Movement
             }
         }
     }
+
+    protected override void UpdateMotor(Vector3 input)
+    {
+        base.UpdateMotor(input);
+        if (transform.position.x > 1.2f)
+        {
+            transform.Translate(-0.01f, 0, 0);
+        }
+        if (transform.position.x < -1.2f)
+        {
+            transform.Translate(0.01f, 0, 0);
+        }
+    }
 }

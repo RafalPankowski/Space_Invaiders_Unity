@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : Collision
 {
     private float ySpeed = 0.75f;
     protected Vector3 bulletMove;
     public Transform bullet;
 
-    private void Update()
+    private void FixedUpdate()
     {
         Shoot();
         BulletDestroy();
