@@ -30,7 +30,7 @@ public class EnemyManager : Movement
 
     private void SpawnEnemy()
     {
-        for (float y = 0.8f; y >= 0.2f; y -= 0.2f)
+        for (float y = 0.7f; y >= 0.1f; y -= 0.2f)
         {
             for (float x = -0.8f; x <= 0.8f; x += 0.2f)
             {
@@ -52,17 +52,17 @@ public class EnemyManager : Movement
 
                 if (enemyObj.transform.position.x > 1.2f)
                 {
-                    transform.Translate(0, -0.1f, 0);
+                    transform.Translate(0, -0.05f, 0);
                     x = -0.5f;
-                    xSpeed += 0.05f;
+                    xSpeed += 0.03f;
                     changedDirection = true;
                     StartCoroutine(DirectionCooldown());
                 }
                 if (enemyObj.transform.position.x < -1.2f)
                 {
-                    transform.Translate(0, -0.1f, 0);
+                    transform.Translate(0, -0.05f, 0);
                     x = 0.5f;
-                    xSpeed += 0.05f;
+                    xSpeed += 0.03f;
                     changedDirection = true;
                     StartCoroutine(DirectionCooldown());
                 }

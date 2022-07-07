@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : Movement
 {
     public Bullet bulletPrefarb;
-    public GameObject player;
     private float cooldown = 0.5f;
     private float lastShoot;
     protected override void Start()
