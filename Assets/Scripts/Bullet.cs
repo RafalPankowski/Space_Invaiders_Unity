@@ -32,7 +32,8 @@ public class Bullet : Collision
     {
         if (coll.tag == "Fighter")
         {
-            Destroy(gameObject);
+            Destroy(coll.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

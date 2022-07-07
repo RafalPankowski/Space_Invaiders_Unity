@@ -8,6 +8,7 @@ public class EnemyManager : Movement
     private float lastMove;
     public GameObject preEnemy;
     private float x = -0.5f;
+    private bool changedDirection = false;
 
     private void Awake()
     {
@@ -46,20 +47,32 @@ public class EnemyManager : Movement
 
         foreach (var enemyObj in FindObjectsOfType(typeof(GameObject)) as GameObject[])
         {
-            if (enemyObj.name == "Enemy(Clone)")
+            if (enemyObj.name == "Enemy(Clone)" && changedDirection == false)
             {
 
                 if (enemyObj.transform.position.x > 1.2f)
                 {
-                    transform.Translate(0, -0.02f, 0);
+                    transform.Translate(0, -0.1f, 0);
                     x = -0.5f;
+                    xSpeed += 0.05f;
+                    changedDirection = true;
+                    StartCoroutine(DirectionCooldown());
                 }
                 if (enemyObj.transform.position.x < -1.2f)
                 {
-                    transform.Translate(0, -0.02f, 0);
+                    transform.Translate(0, -0.1f, 0);
                     x = 0.5f;
+                    xSpeed += 0.05f;
+                    changedDirection = true;
+                    StartCoroutine(DirectionCooldown());
                 }
             }
         }
+    }
+
+    IEnumerator DirectionCooldown()
+    {
+        yield return new WaitForSeconds(mCooldown);
+        changedDirection = false;
     }
 }

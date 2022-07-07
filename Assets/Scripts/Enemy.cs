@@ -9,7 +9,8 @@ public class Enemy : Collision
     {
         if(coll.tag == "Fighter")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            //Destroy(this);
         }
     }
 }
