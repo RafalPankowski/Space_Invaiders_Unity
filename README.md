@@ -1,1 +1,1 @@
-Game project based on Unity Engine
+Space Invaiders based on Unity Engine
