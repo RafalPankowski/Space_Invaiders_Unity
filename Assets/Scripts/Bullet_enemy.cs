@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet_enemy : Collision
+
 {
     private float ySpeed = 0.75f;
     protected Vector3 bulletMove;
@@ -30,7 +31,7 @@ public class Bullet_enemy : Collision
 
     protected override void OnCollide(Collider2D coll)
     {
-        if (coll.name == "Player")
+        if (coll.tag == "Player")
         {
             Destroy(this.gameObject);
         }

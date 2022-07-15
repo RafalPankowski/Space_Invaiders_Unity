@@ -7,6 +7,7 @@ public class Player : Movement
     public Bullet bulletPrefarb;
     private float cooldown = 0.5f;
     private float lastShoot;
+    public int hitpoint = 3;
     protected override void Start()
     {
         base.Start();
@@ -44,4 +45,5 @@ public class Player : Movement
             transform.Translate(0.01f, 0, 0);
         }
     }
+
 }

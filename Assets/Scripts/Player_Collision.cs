@@ -2,19 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Collision
+public class Player_Collision : Collision
 {
-    public void Enemy_Death()
-    {
-        Destroy(this.gameObject);
-        GameManager.instance.IncreaseScore(1);
-    }
-
     protected override void OnCollide(Collider2D coll)
     {
         if (coll.tag == "Bullet")
         {
-            Destroy(gameObject);
+            GameManager.instance.player.hitpoint -= 1;
         }
     }
 }

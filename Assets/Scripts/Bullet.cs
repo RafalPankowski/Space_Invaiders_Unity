@@ -32,8 +32,9 @@ public class Bullet : Collision
     {
         if (coll.tag == "Fighter")
         {
-            Destroy(coll.gameObject);
             Destroy(this.gameObject);
+            Destroy(coll.gameObject);
+            GameManager.instance.IncreaseScore(GameManager.instance.points);
         }
     }
 }

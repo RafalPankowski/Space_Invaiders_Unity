@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyManager : Movement
 {
+    public EnemyManager instance;
+
     private float mCooldown = 0.5f;
     private float lastMove;
     public GameObject preEnemy;
@@ -12,6 +14,7 @@ public class EnemyManager : Movement
 
     private void Awake()
     {
+        instance = this;
         transform.position = Vector3.zero;
     }
 
@@ -19,7 +22,7 @@ public class EnemyManager : Movement
     {
         base.Start();
         SpawnEnemy();
-        xSpeed = 0.3f;
+        xSpeed = 0.6f;
     }
 
     // Update is called once per frame
@@ -57,6 +60,7 @@ public class EnemyManager : Movement
                     xSpeed += 0.03f;
                     changedDirection = true;
                     StartCoroutine(DirectionCooldown());
+                    GameManager.instance.points++;
                 }
                 if (enemyObj.transform.position.x < -1.2f)
                 {
@@ -65,6 +69,7 @@ public class EnemyManager : Movement
                     xSpeed += 0.03f;
                     changedDirection = true;
                     StartCoroutine(DirectionCooldown());
+                    GameManager.instance.points++;
                 }
             }
         }
