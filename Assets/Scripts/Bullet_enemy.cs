@@ -34,6 +34,7 @@ public class Bullet_enemy : Collision
         if (coll.tag == "Player")
         {
             Destroy(this.gameObject);
+            HUDMenu.instance.Player_hited();
         }
     }
 }

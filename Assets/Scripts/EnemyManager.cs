@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyManager : Movement
 {
-    public EnemyManager instance;
+    public static EnemyManager instance;
 
     private float mCooldown = 0.5f;
-    private float lastMove;
     public GameObject preEnemy;
     private float x = -0.5f;
     private bool changedDirection = false;
+    public int enemyCount;
 
     private void Awake()
     {
@@ -22,13 +22,14 @@ public class EnemyManager : Movement
     {
         base.Start();
         SpawnEnemy();
-        xSpeed = 0.6f;
+        xSpeed = 0.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateMotor(new Vector3(x, 0, 0));
+        EnemyCounter();
     }
 
     private void SpawnEnemy()
@@ -40,7 +41,16 @@ public class EnemyManager : Movement
                 GameObject enemy = Instantiate(preEnemy);
                 enemy.transform.position = new Vector3(x, y, 0);
                 enemy.transform.parent = gameObject.transform;
+                enemyCount++;
             }
+        }
+    }
+
+    private void EnemyCounter()
+    {
+        if(enemyCount == 0)
+        {
+            GameManager.instance.Win();
         }
     }
 
@@ -55,7 +65,7 @@ public class EnemyManager : Movement
 
                 if (enemyObj.transform.position.x > 1.2f)
                 {
-                    transform.Translate(0, -0.05f, 0);
+                    transform.Translate(0, -0.1f, 0);
                     x = -0.5f;
                     xSpeed += 0.03f;
                     changedDirection = true;
@@ -64,12 +74,16 @@ public class EnemyManager : Movement
                 }
                 if (enemyObj.transform.position.x < -1.2f)
                 {
-                    transform.Translate(0, -0.05f, 0);
+                    transform.Translate(0, -0.1f, 0);
                     x = 0.5f;
                     xSpeed += 0.03f;
                     changedDirection = true;
                     StartCoroutine(DirectionCooldown());
                     GameManager.instance.points++;
+                }
+                if (enemyObj.transform.position.y < -0.6)
+                {
+                    GameManager.instance.Lose();
                 }
             }
         }

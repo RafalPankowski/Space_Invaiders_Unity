@@ -35,6 +35,7 @@ public class Bullet : Collision
             Destroy(this.gameObject);
             Destroy(coll.gameObject);
             GameManager.instance.IncreaseScore(GameManager.instance.points);
+            EnemyManager.instance.enemyCount--;
         }
     }
 }

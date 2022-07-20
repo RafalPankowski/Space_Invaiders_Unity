@@ -777,8 +777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSpeed: 0.5
   ySpeed: 0.25
-  instance: {fileID: 0}
   preEnemy: {fileID: 8845643133985849509, guid: 107d9deaf383c0548b4b9160dbf802a8, type: 3}
+  enemyCount: 0
 --- !u!1 &1678106536
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +896,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 11237886}
-  lives: {fileID: 6250039178600236876, guid: 346969df69f42df4f82a0940a29f6cf9, type: 3}
+  preLive: {fileID: 3104656471442689016, guid: 346969df69f42df4f82a0940a29f6cf9, type: 3}
+  healthbar: {fileID: 120838614}
+  lives: 0
 --- !u!225 &1678106542
 CanvasGroup:
   m_ObjectHideFlags: 0

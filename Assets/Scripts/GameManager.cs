@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject wynik;
     public static GameManager instance;
+    public string res;
+    public Text text;
     void Awake()
     {
         instance = this;
@@ -25,5 +29,17 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore(int score)
     {
         totalscore += score;
+    }
+    public void Win()
+    {
+        SceneManager.LoadScene("GameOver");
+        res = " Wygrana! Twój wynik to: " + totalscore.ToString() + " punktów";
+    }
+
+    public void Lose()
+    {
+        SceneManager.LoadScene("GameOver");
+        res = " Przegrana! Twój wynik to: " + totalscore.ToString() + " punktów";
+
     }
 }
