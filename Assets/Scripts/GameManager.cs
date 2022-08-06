@@ -33,13 +33,13 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         SceneManager.LoadScene("GameOver");
-        res = " Wygrana! Twój wynik to: " + totalscore.ToString() + " punktów";
+        res = " You win! Scored: " + totalscore.ToString() + " points";
     }
 
     public void Lose()
     {
         SceneManager.LoadScene("GameOver");
-        res = " Przegrana! Twój wynik to: " + totalscore.ToString() + " punktów";
+        res = " You lose! Scored: " + totalscore.ToString() + " points";
 
     }
 }
